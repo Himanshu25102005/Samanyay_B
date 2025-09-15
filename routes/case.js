@@ -1,0 +1,16 @@
+const mongoose = require("mongoose"); 
+
+const postSchema = mongoose.Schema({
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "user",
+  },
+  title: String,
+  description: String,
+  createdAt: {
+    type: Date,
+    default: Date.now, 
+  },
+});
+
+module.exports = mongoose.model("case", postSchema); 
