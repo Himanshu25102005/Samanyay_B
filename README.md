@@ -1,4 +1,4 @@
-# CaseFlow - Legal Case Management System
+# Samanyay - Legal Case Management System
 
 A modern, full-stack web application for managing legal cases with a beautiful React frontend and a robust Node.js/Express backend.
 
