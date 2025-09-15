@@ -3,8 +3,9 @@ const userModel = require("./users");
 require('dotenv').config();
 
 var GoogleStrategy = require("passport-google-oauth2").Strategy;
-const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
-const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
+const GOOGLE_CLIENT_ID =
+  "412208589931-886nb5on31fb3h7nk4tdh5anogbo3c61.apps.googleusercontent.com";
+const GOOGLE_CLIENT_SECRET = "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";
 
 passport.use(
   new GoogleStrategy(
@@ -39,7 +40,7 @@ passport.use(
             email: userEmail,
             name: profile.displayName,
             profileImage: userPhoto, // Changed to match your schema
-            username: profile.id + '@google' // Use email as username
+            username: profile.id + '@google', // Use email as username
           });
           console.log(newUser);
 

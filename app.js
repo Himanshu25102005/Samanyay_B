@@ -8,9 +8,19 @@ const passport = require("passport");
 const expressSession = require("express-session")
 var bodyParser = require('body-parser');
 var indexRouter = require('./routes/index');
+const stripe = require('stripe');
 require('./routes/auth'); // Import auth configuration
 
 var app = express();
+
+app.use(cors({
+  origin: 'http://localhost:5173', // Your frontend URL
+  credentials: true, // Allow cookies/sessions
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -29,12 +39,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 
-app.use(cors());
-/* app.use(cors({
-  origin: 'http://localhost:3000',
-  methods: ['GET', 'POST'],
-  credentials: true
-})); */
 
 // Serialize/deserialize functions are now defined in routes/auth.js
 
